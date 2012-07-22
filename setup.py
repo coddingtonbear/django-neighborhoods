@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='django-neighborhoods',
-    version='1.0',
+    version='1.0.1',
     url='http://bitbucket.org/latestrevision/django-neighborhoods/',
     description='Use neighborhood boundaries provided by the Zillow',
     author='Adam Coddington',
@@ -16,7 +16,7 @@ setup(
     ],
     packages=[
         'neighborhoods', 
+        'neighborhoods.management',
         'neighborhoods.management.commands',
         ],
-    zip_safe=False
 )

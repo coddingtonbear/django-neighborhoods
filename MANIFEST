@@ -3,5 +3,6 @@ setup.py
 neighborhoods/__init__.py
 neighborhoods/admin.py
 neighborhoods/models.py
+neighborhoods/management/__init__.py
 neighborhoods/management/commands/__init__.py
 neighborhoods/management/commands/import_neighborhoods.py
