@@ -38,6 +38,14 @@ class Neighborhood(models.Model):
             )
         return boundary
 
+    def __unicode__(self):
+        return "%s, %s, %s, %s" % (
+                self.name,
+                self.city,
+                self.county,
+                self.state,
+                )
+
     class Meta:
         unique_together = (
                 'state',
