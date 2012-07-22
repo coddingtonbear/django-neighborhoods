@@ -8,6 +8,7 @@ import urllib2
 import zipfile
 
 from django.contrib.gis.gdal import DataSource, OGRGeometry, OGRGeomType
+from django.contrib.localflavor.us.us_states import STATE_CHOICES
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 
@@ -17,7 +18,7 @@ logger = logging.getLogger('neighborhoods.management.commands.import_neighborhoo
 logging.basicConfig(level=logging.INFO)
 
 class Command(BaseCommand):
-    args = '<\'Two-letter state abbreviation\'>' 
+    args = '<\'Two-letter state abbreviation\'|\'all\'>' 
     help = 'Downloads and imports neighborhood boundaries supplied by Zillow.'
 
     URL_PATTERN = "http://www.zillow.com/static/shp/ZillowNeighborhoods-%(state_abbreviation)s.zip"
@@ -28,16 +29,27 @@ class Command(BaseCommand):
             arg = args[0]
         except IndexError:
             raise CommandError(
-                "You must supply an argument of a two-letter state abbreviation"
+                "You must supply an argument of a two-letter state abbreviation "
+                "or the word 'all'."
                 )
-        return self.import_single_state(arg)
+        if arg.lower() == 'all':
+            return self.import_all_states()
+        else:
+            return self.import_single_state(arg)
+
+    def import_all_states(self):
+        for state_info in STATE_CHOICES:
+            self.import_single_state(state_info[0])
 
     def import_single_state(self, arg):
         url = self._get_url_from_arg(arg)
         logger.info("Downloading data for \"%s\" from %s" % (arg, url))
-        shapefile_dir = self._get_temporary_shapefile_dir_from_url(url)
-        self._insert_from_shapefile(shapefile_dir)
-        shutil.rmtree(shapefile_dir)
+        try:
+            shapefile_dir = self._get_temporary_shapefile_dir_from_url(url)
+            self._insert_from_shapefile(shapefile_dir)
+            shutil.rmtree(shapefile_dir)
+        except urllib2.HTTPError:
+            logger.warning("No data available for \"%s\"." % arg)
 
     def _cleanup_temporary_directory(self, directory):
         shutil.rmtree(directory)
@@ -110,4 +122,12 @@ class Command(BaseCommand):
         return temporary_directory
 
     def _get_url_from_arg(self, arg):
-        return self.URL_PATTERN % {'state_abbreviation': arg}
+        state = None
+        if len(arg) == 2:
+            state = arg.upper()
+        else:
+            for choice in STATE_CHOICES:
+                if choice[2].upper() == arg:
+                    state = choice[1].upper()
+
+        return self.URL_PATTERN % {'state_abbreviation': state}

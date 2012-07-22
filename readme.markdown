@@ -40,7 +40,7 @@ For a point named `point`, you can find which (if any) neighborhood the point is
 Commands
 --------
 
-`import_neighborhoods <Two-letter state abbreviation>`: Download the specified state's shapefile, and import the data into your application.
+`import_neighborhoods <Two-letter state abbreviation|'all'>`: Download the specified state's shapefile (or 'all' avaliable shapefiles), and import the data into your application.
 
 Examples
 --------
@@ -49,3 +49,7 @@ If you, perhaps, live in Portland, Oregon, and are using this application to ide
 
     python manage.py import_neighborhoods OR
     python manage.py import_neighborhoods WA
+
+Or, if you're developing an application that could utilize data from the entire nation:
+
+    python manage.py import_neighborhoods all
