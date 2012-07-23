@@ -36,8 +36,7 @@ class PortlandNeighborhoodShapefileImporter(NeighborhoodShapefileImporter):
         return place
 
 class Command(BaseCommand):
-    args = '<\'Two-letter state abbreviation\'|\'all\'>' 
-    help = 'Downloads and imports neighborhood boundaries supplied by Zillow.'
+    help = 'Downloads and imports neighborhood boundaries supplied by the City of Portland, Oregon.'
 
     URL = 'ftp://ftp02.portlandoregon.gov/CivicApps/Neighborhoods_pdx.zip'
 
