@@ -24,6 +24,20 @@ You can either install from pip:
     cd django-neighborhoods
     python setup.py install
 
+If you live in Portland, Oregon, I recommend using the shapefiles provided by the City of Portland (note that you can use both the shapefiles provided by the City of Portland as well as those provided by Zillow; each source has an adjustable priority priority, with those provided by the City of Portland having a higher priority than those of Zillow):
+
+    python manage.py import_portland_neighborhoods
+
+But, if you happen to live in, perhaps, Chicago, Illinois and almost never leave the state, you might just run:
+
+    python manage.py import_zillow_neighborhoods IL
+
+Or, if you're developing an application that could utilize data from the entire nation:
+
+    python manage.py import_zillow_neighborhoods all
+
+See the 'Commands' section below for more information.
+
 Use
 ---
 
@@ -44,17 +58,3 @@ Commands
 
 `import_portland_neighborhoods`: Download neighborhood boundaries produced by the City of Portland, and import them into your application.
 
-Examples
---------
-
-If you live in Portland, Oregon, I recommend using the shapefiles provided by the City of Portland (note that you can use both the shapefiles provided by the City of Portland as well as those provided by Zillow; each source has an adjustable priority priority, with those provided by the City of Portland having a higher priority than those of Zillow):
-
-    python manage.py import_portland_neighborhoods
-
-But, if you happen to live in, perhaps, Chicago, Illinois and almost never leave the state, you might just run:
-
-    python manage.py import_zillow_neighborhoods IL
-
-Or, if you're developing an application that could utilize data from the entire nation:
-
-    python manage.py import_zillow_neighborhoods all
