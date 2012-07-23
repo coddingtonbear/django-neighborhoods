@@ -2,9 +2,9 @@ from distutils.core import setup
 
 setup(
     name='django-neighborhoods',
-    version='1.1',
+    version='2.0',
     url='http://bitbucket.org/latestrevision/django-neighborhoods/',
-    description='Use neighborhood boundaries provided by the Zillow',
+    description='Get neighborhood information for your coordinates.',
     author='Adam Coddington',
     author_email='me@adamcoddington.net',
     classifiers=[
@@ -18,5 +18,6 @@ setup(
         'neighborhoods', 
         'neighborhoods.management',
         'neighborhoods.management.commands',
+        'neighborhoods.migrations',
         ],
 )
