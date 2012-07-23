@@ -32,10 +32,10 @@ For a point named `point`, you can find which (if any) neighborhood the point is
     from neighborhoods.models import Neighborhood
 
     try:
-        city = Neighborhood.get_containing(point)
+        neighborhood = Neighborhood.get_containing(point)
     except Neighborhood.DoesNotExist:
         # You are currently outside of any known neighborhood's boundaries
-        city = None
+        neighborhood = None
 
 Commands
 --------
