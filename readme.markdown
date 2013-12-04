@@ -1,5 +1,5 @@
-Introduction
-============
+Django-neighborhoods
+====================
 
 Almost 80% of Americans live in urban environments; if you do, too, and have coordinates that you might want to gather the neighborhood from, you can use this tool to do so.
 
@@ -58,3 +58,4 @@ Commands
 
 `import_portland_neighborhoods`: Download neighborhood boundaries produced by the City of Portland, and import them into your application.
 
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/latestrevision/django-neighborhoods/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
