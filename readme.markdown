@@ -12,12 +12,6 @@ You can either install from pip:
 
     pip install django-neighborhoods
 
-*or* checkout and install the source from the [bitbucket repository](https://bitbucket.org/latestrevision/django-neighborhoods):
-
-    hg clone https://bitbucket.org/latestrevision/django-neighborhoods
-    cd django-neighborhoods
-    python setup.py install
-
 *or* checkout and install the source from the [github repository](https://github.com/latestrevision/django-neighborhoods):
 
     git clone https://github.com/latestrevision/django-neighborhoods.git
