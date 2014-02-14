@@ -15,6 +15,9 @@ setup(
         'Programming Language :: Python',
         'Topic :: Scientific/Engineering :: GIS',
     ],
+    install_requires=[
+        'django-localflavor>=1.0',
+    ],
     packages=[
         'neighborhoods', 
         'neighborhoods.management',

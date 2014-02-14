@@ -1,12 +1,17 @@
 import logging
 import urllib2
 
-from django.contrib.localflavor.us.us_states import STATE_CHOICES
 from django.core.management.base import BaseCommand, CommandError
 
 from neighborhoods.models import Neighborhood, NeighborhoodSource
 from neighborhoods.importer import NeighborhoodShapefileImporter, \
         NeighborhoodShapefileImporterException
+
+try:
+    from localflavor.us.us_states import STATE_CHOICES
+except ImportError:
+    from django.contrib.localflavor.us.us_states import STATE_CHOICES
+
 
 logger = logging.getLogger('neighborhoods.management.commands.import_zillow_neighborhoods')
 logging.basicConfig(level=logging.INFO)
