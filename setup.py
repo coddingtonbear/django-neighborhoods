@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='django-neighborhoods',
-    version='2.0',
+    version='2.0.1',
     url='http://github.com/latestrevision/django-neighborhoods/',
     description='Get neighborhood information for your coordinates.',
     author='Adam Coddington',
