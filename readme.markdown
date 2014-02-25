@@ -12,9 +12,9 @@ You can either install from pip:
 
     pip install django-neighborhoods
 
-*or* checkout and install the source from the [github repository](https://github.com/latestrevision/django-neighborhoods):
+*or* checkout and install the source from the [github repository](https://github.com/coddingtonbear/django-neighborhoods):
 
-    git clone https://github.com/latestrevision/django-neighborhoods.git
+    git clone https://github.com/coddingtonbear/django-neighborhoods.git
     cd django-neighborhoods
     python setup.py install
 
@@ -52,4 +52,4 @@ Commands
 
 `import_portland_neighborhoods`: Download neighborhood boundaries produced by the City of Portland, and import them into your application.
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/latestrevision/django-neighborhoods/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/coddingtonbear/django-neighborhoods/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
